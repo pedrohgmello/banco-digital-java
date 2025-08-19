@@ -15,10 +15,6 @@ public final class ContaCorrente extends Conta {
         this.limiteChequeEspecial = limiteChequeEspecial;
     }
 
-    //TODO: implementar saque e depósito de acordo com chequeEspecial
-    //TODO: implementar escritas do console na verificação do retorno da operaçao booleana
-    //TODO: implementar log de sucesso apenas em depositar
-
 
     @Override
     public boolean saque(BigDecimal valor) {

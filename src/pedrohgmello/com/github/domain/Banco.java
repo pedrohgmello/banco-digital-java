@@ -24,12 +24,6 @@ public class Banco {
         this.contas.put(conta.getNumero(), conta);
     }
 
-
-    /*TODO: Implementar realizarTransferencia (chama o saque de uma e o deposito da outra), realizarSaque e
-        realizarDeposito para verificar se a conta existe e outros métodos que o gemini falou
-        (para implementar alguns vamos ter que mudar uns métodos da Contas)
-    */
-
     public void realizarDeposito(String numero, BigDecimal valor) {
         if(this.contas.containsKey(numero)) {
             Conta conta = this.contas.get(numero);

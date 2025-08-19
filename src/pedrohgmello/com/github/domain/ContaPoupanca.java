@@ -8,9 +8,6 @@ import java.util.List;
 
 public final class ContaPoupanca extends Conta {
 
-    //TODO: implementar escritas do console na verificação do retorno da operaçao booleana
-    //TODO: implementar log de sucesso apenas em depositar
-
     public ContaPoupanca(Cliente cliente, String numero, BigDecimal saldo) {
         super(cliente, numero, saldo);
     }
