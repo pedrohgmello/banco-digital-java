@@ -38,4 +38,12 @@ public abstract sealed class Conta implements IConta permits ContaCorrente, Cont
     public List<Transacoes> getHistorico() {
         return historico;
     }
+
+    abstract boolean verificarSaldo(BigDecimal valorDaOperacao);
+
+    abstract void retirarDinheiroSaldo(BigDecimal valorDaOperacao);
+
+    abstract void inserirDinheiro(BigDecimal valorDaOperacao);
+
+
 }
