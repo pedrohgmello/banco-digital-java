@@ -4,7 +4,7 @@ import pedrohgmello.com.github.exceptions.ChaveInexistenteException;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.List;
+import java.text.DecimalFormat;
 
 public final class ContaPoupanca extends Conta {
 
@@ -32,14 +32,30 @@ public final class ContaPoupanca extends Conta {
     public void renderJuros(BigDecimal taxaAnual){
         BigDecimal taxaMensal = taxaAnual.divide(new BigDecimal("12"), 8, RoundingMode.HALF_UP);
         BigDecimal rendimento = this.saldo.multiply(taxaMensal);
+        inserirDinheiro(rendimento);
+    }
+
+    @Override
+    public void retirarDinheiroSaldo(BigDecimal valorDaOperacao){
+        this.setSaldo(saldo.subtract(valorDaOperacao));
+    }
+
+    @Override
+    public boolean verificarSaldo(BigDecimal valorDaOperacao){
+        return this.saldo.compareTo(valorDaOperacao) >= 0;
+    }
+    @Override
+    public void inserirDinheiro(BigDecimal valorDaOperacao){
+        this.setSaldo(this.getSaldo().add(valorDaOperacao));
     }
 
     @Override
     public String toString() {
+        DecimalFormat df = new DecimalFormat("0.00");
         return "ContaPoupanca{" +
                 "cliente=" + cliente.getNome() +
                 ", numero='" + numero + '\'' +
-                ", saldo=" + saldo +
+                ", saldo=" + df.format(saldo) +
                 '}';
     }
 }
